@@ -1,0 +1,10 @@
+# SayUI Config Language File.
+# Use "§" for adding colors.
+# Use "\n" for adding line.
+
+use_in_game: "§cUse this command in the game"
+
+# The message will be displayed on SayUI.
+sui.title: "§l§eSay§bUI"
+sui.label: "§bFill out this message for everyone"
+sui.input: "§bEnter your message :"
