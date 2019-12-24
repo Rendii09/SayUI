@@ -45,41 +45,41 @@ use jojoe77777\FormAPI;
 
 class Main extends PluginBase implements Listener {
     
-	public function onEnable(){
-          $this->getLogger()->info(C::GREEN . "Enable!");
+    public function onEnable(){
+        $this->getLogger()->info(C::GREEN . "Enable!");
           
-          @mkdir($this->getDataFolder());
-          $this->saveDefaultConfig();
-          $this->getResource("config.yml");
+        @mkdir($this->getDataFolder());
+        $this->saveDefaultConfig();
+        $this->getResource("config.yml");
     }
 
-	public function onDisable(){
-          $this->getLogger()->info(C::RED . "Disable!");
+    public function onDisable(){
+        $this->getLogger()->info(C::RED . "Disable!");
     }
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool {
-           switch($command->getName()){
-                   case "sui":
-                          if(!($sender instanceof Player)){
-                                 $sender->sendMessage($this->getConfig()->get("use_in_game"));
-                                   return true;
-                   }
-                         if(!$sender->hasPermission("sui.cmd")){
+        switch($command->getName()){
+            case "sui":
+                if(!($sender instanceof Player)){
+                     $sender->sendMessage($this->getConfig()->get("use_in_game"));
+                       return true;
+                }
+                if(!$sender->hasPermission("sui.cmd")){
                    return true;
-          }
-          $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
-          $form = $api->createCustomForm(function(Player $sender, array $data){
+           }
+           $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
+           $form = $api->createCustomForm(function(Player $sender, array $data){
               $result = $data[0];
                 if($data !== null){
-				     $command = "say " . $data[1];
-                     $this->getServer()->getCommandMap()->dispatch($sender, $command);
+		$command = "say " . $data[1];
+                $this->getServer()->getCommandMap()->dispatch($sender, $command);
               }
-         });
-         $form->setTitle($this->getConfig()->get("sui.title"));
-         $form->addLabel($this->getConfig()->get("sui.label"));
-         $form->addInput($this->getConfig()->get("sui.input"));
-         $form->sendToPlayer($sender);
-         }
-         return true;
-    }
+        });
+        $form->setTitle($this->getConfig()->get("sui.title"));
+        $form->addLabel($this->getConfig()->get("sui.label"));
+        $form->addInput($this->getConfig()->get("sui.input"));
+        $form->sendToPlayer($sender);
+        }
+        return true;
+   }
 }
