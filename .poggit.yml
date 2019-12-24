@@ -1,0 +1,7 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Rendii09/SayUI
+branches:
+- master
+projects:
+  SayUI:
+    path: ""
+...
