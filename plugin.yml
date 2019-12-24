@@ -13,3 +13,4 @@ permissions:
   sui.cmd:
     default: op
     description: "SayUI Commands"
+    
